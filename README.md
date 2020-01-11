@@ -25,6 +25,11 @@ Built With
 <img src="./public/assets/images/ss1.jpg" width=700>
 <img src="./public/assets/images/ss2.jpg" width=700>
 
+
+Project source can be downloaded from (https://sharonyel.github.io/noteTaker/)
+---
+
+
 MIT License
 
 Copyright (c) 2020 Sharon Yelverton
