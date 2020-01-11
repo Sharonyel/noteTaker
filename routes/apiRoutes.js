@@ -3,9 +3,9 @@ const fs = require("fs");
 
 var notesData = require("../db/db.json");
 
+// Routing the api
 
 module.exports = function (app) {
-
 
   app.get("/api/notes", function (req, res) {
     res.json(notesData)
@@ -20,7 +20,6 @@ module.exports = function (app) {
     else {
       index = notesData.length - 1;
       id = notesData[index].id + 1;
-
     }
 
     newNote.id = id
@@ -30,9 +29,7 @@ module.exports = function (app) {
       if (err) throw err;
       res.json(results)
     });
-
   }
-
   );
 
   app.delete("/api/notes/:id", function (req, res) {
@@ -40,19 +37,13 @@ module.exports = function (app) {
     console.log("id... " + delNoteid)
     notesData.forEach(function (note, index) {
       if (delNoteid == note.id) {
-
         notesData.splice(index, 1);
-      console.log(notesData);
-      fs.writeFile("./db/db.json", JSON.stringify(notesData), (results, err) => {
-        if (err) throw err;
-        res.json(results)
-      });
-  
+        console.log(notesData);
+        fs.writeFile("./db/db.json", JSON.stringify(notesData), (results, err) => {
+          if (err) throw err;
+          res.json(results)
+        });
       }
     })
-
-
   });
-
-
 };
