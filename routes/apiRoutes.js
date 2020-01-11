@@ -1,40 +1,58 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
 
- const fs = require("fs");
+const fs = require("fs");
 
- var notesData = require("../db/db.json");
+var notesData = require("../db/db.json");
 
 
-module.exports = function(app) {
+module.exports = function (app) {
 
 
-  app.get("/api/notes", function(req, res) {
+  app.get("/api/notes", function (req, res) {
     res.json(notesData)
   })
-  app.post("/api/notes", function(req, res) {
-      var newNote = req.body;
-      const id = notesData[notesData.length-1].id+1
-      newNote.id = id
-      notesData.push(newNote);
+  app.post("/api/notes", function (req, res) {
+    var newNote = req.body;
+    let id;
 
-    fs.writeFile("./db/db.json", JSON.stringify(notesData),(results, err) => {
+    if (notesData.length === 0) {
+      id = 0;
+    }
+    else {
+      index = notesData.length - 1;
+      id = notesData[index].id + 1;
+
+    }
+
+    newNote.id = id
+    notesData.push(newNote);
+
+    fs.writeFile("./db/db.json", JSON.stringify(notesData), (results, err) => {
       if (err) throw err;
       res.json(results)
     });
 
-    }
-   
+  }
+
   );
 
+  app.delete("/api/notes/:id", function (req, res) {
+    var delNoteid = req.params.id;
+    console.log("id... " + delNoteid)
+    notesData.forEach(function (note, index) {
+      if (delNoteid == note.id) {
 
-   app.delete("/api/notes/" + id, function(req, res) {
-     var delNote = res.param.id;
-     console.log(delNote);
-    
-   });
+        notesData.splice(index, 1);
+      console.log(notesData);
+      fs.writeFile("./db/db.json", JSON.stringify(notesData), (results, err) => {
+        if (err) throw err;
+        res.json(results)
+      });
+  
+      }
+    })
+
+
+  });
+
 
 };

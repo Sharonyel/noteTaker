@@ -60,6 +60,7 @@ var handleNoteSave = function() {
 
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
+    console.log('get and render')
     renderActiveNote();
   });
 };
@@ -79,6 +80,7 @@ var handleNoteDelete = function(event) {
 
   deleteNote(note.id).then(function() {
     getAndRenderNotes();
+    console.log('delete note');
     renderActiveNote();
   });
 };
