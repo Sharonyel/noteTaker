@@ -15,7 +15,7 @@ module.exports = function (app) {
     let id;
 
     if (notesData.length === 0) {
-      id = 0;
+      id = 1;
     }
     else {
       index = notesData.length - 1;
