@@ -22,8 +22,8 @@ Built With
 * JavaScript
 * HTML
 
-<img src="assets/images/ss1.jpg" width=700>
-<img src="assets/images/ss2.jpg" width=00>
+<img src="./public/assets/images/ss1.jpg" width=700>
+<img src="./public/assets/images/ss2.jpg" width=700>
 
 MIT License
 
