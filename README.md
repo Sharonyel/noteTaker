@@ -6,14 +6,17 @@ This application that can be used to write, save, and delete notes. This applica
 
 How To Use:
 ---
-Click the Get Started button to see the notes already saved.
+*  Click the Get Started button to see the notes already saved.
 
-Click in the Note Title area to create a note title and then type the note. Click the save button in the top right corner to save the note.
+*  Click in the Note Title area to create a note title and then type the note. Click the save button in the top right corner to save the note.
 
-Click the desired note on the lefthand side to see the note populated in the text area.
+*  Click the desired note on the lefthand side to see the note populated in the text area.
 
-The trash icon will delete a note from the server.
+*  The trash icon will delete a note from the server.
 
+
+Project source can be downloaded from (https://sharonyel.github.io/noteTaker/)
+---
 
 Built With
 --
@@ -24,10 +27,6 @@ Built With
 
 <img src="./public/assets/images/ss1.jpg" width=700>
 <img src="./public/assets/images/ss2.jpg" width=700>
-
-
-Project source can be downloaded from (https://sharonyel.github.io/noteTaker/)
----
 
 
 MIT License
